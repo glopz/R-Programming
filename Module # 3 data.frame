@@ -1,0 +1,19 @@
+# Create vectors
+Name <- c("Jeb", "Donald", "Ted", "Marco", "Carly", "Hillary", "Bernie")
+ABC_poll <- c(4, 62, 51, 21, 2, 14, 15)
+CBS_poll <- c(12, 75, 43, 19, 1, 21, 19)
+
+# Create data frame
+election_data <- data.frame(
+  Candidate = Name,
+  ABC_Poll = ABC_poll,
+  CBS_Poll = CBS_poll
+)
+# Calculate average poll results
+election_data$Average_Poll <- (election_data$ABC_Poll + election_data$CBS_Poll) / 2
+
+# Sort by average poll results (descending order)
+election_data_sorted <- election_data[order(-election_data$Average_Poll), ]
+
+# Print the sorted data
+print(election_data_sorted)
