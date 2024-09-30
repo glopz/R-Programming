@@ -1,0 +1,38 @@
+#Your Assignment:
+#Find the value of inverse of a matrix, determinant of a matrix by using the following values:
+#A=matrix(1:100, nrow=10)
+#B=matrix(1:1000, nrow=10)
+
+#Set seed for reproducibility
+set.seed(123)
+#: Create a 10x10 matrix with random values between 1 and 100
+A <- matrix(runif(100, min = 1, max = 100), nrow = 10)
+
+# Check the determinant of matrix A
+det_A <- det(A)
+print(paste("Determinant of A:", det_A))
+
+# Calculate the inverse if the determinant is non-zero
+if (det_A != 0) {
+  inv_A <- solve(A)
+  print("Inverse of A:")
+  print(inv_A)
+} else {
+  print("Matrix A is singular; cannot compute the inverse.")
+}
+
+#create another matrix B (10x10) and check its determinant and inverse
+B <- matrix(sample(1:1000, 100, replace = FALSE), nrow = 10)
+
+#Check the determinant of matrix B
+det_B <- det(B)
+print(paste("Determinant of B:", det_B))
+
+#  Calculate the inverse if the determinant is non-zero
+if (det_B != 0) {
+  inv_B <- solve(B)
+  print("Inverse of B:")
+  print(inv_B)
+} else {
+  print("Matrix B is singular; cannot compute the inverse.")
+}
