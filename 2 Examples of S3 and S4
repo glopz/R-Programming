@@ -1,0 +1,83 @@
+# --- S3 Example Student ---
+
+# Step 1: Create a simple S3 object (list)
+s3 <- list(name = "Myself", age = 29, GPA = 3.5)
+
+# Step 2: Assign a class to the object
+class(s3) <- "student"
+
+# Step 3: Define a method for the "student" class
+print.student <- function(x) {
+  cat("S3 Object - Student Information:\n")
+  cat("Name:", x$name, "\n")
+  cat("Age:", x$age, "\n")
+  cat("GPA:", x$GPA, "\n")
+}
+
+# Step 4: Use the custom method to print the S3 object
+print(s3)
+
+# --- S4 Example Student ---
+
+# Step 1: Define an S4 class called "student"
+setClass("student",
+         slots = list(name = "character", age = "numeric", GPA = "numeric"))
+
+# Step 2: Create an instance of the S4 class
+s4 <- new("student", name = "Myself", age = 29, GPA = 3.5)
+
+# Step 3: Display the S4 object
+cat("\nS4 Object - Default display:\n")
+s4
+
+# Step 4: Define a custom method to show the student object details
+setMethod("show", "student", function(object) {
+  cat("S4 Object - Student Information:\n")
+  cat("Name:", object@name, "\n")
+  cat("Age:", object@age, "\n")
+  cat("GPA:", object@GPA, "\n")
+})
+
+# Step 5: Show the S4 object using the custom method
+cat("\nS4 Object - Custom display:\n")
+show(s4)
+
+# --- S3 Example: Employee Object ---
+
+# Step 1: Create a simple S3 object (list)
+employee <- list(name = "John Doe", position = "Manager", salary = 75000)
+
+# Step 2: Assign a class to the object
+class(employee) <- "employee"
+
+# Step 3: Define a custom print method for the "employee" class
+print.employee <- function(x) {
+  cat("S3 Object - Employee Information:\n")
+  cat("Name:", x$name, "\n")
+  cat("Position:", x$position, "\n")
+  cat("Salary: $", x$salary, "\n")
+}
+
+# Step 4: Use the custom method to print the employee object
+print(employee)
+
+# --- S4 Example: Car Object ---
+
+# Step 1: Define an S4 class called "car"
+setClass("car",
+         slots = list(make = "character", model = "character", price = "numeric"))
+
+# Step 2: Create an instance of the S4 class
+my_car <- new("car", make = "Toyota", model = "Camry", price = 24000)
+
+# Step 3: Define a custom show method for the "car" class
+setMethod("show", "car", function(object) {
+  cat("S4 Object - Car Information:\n")
+  cat("Make:", object@make, "\n")
+  cat("Model:", object@model, "\n")
+  cat("Price: $", object@price, "\n")
+})
+
+# Step 4: Show the car object using the custom method
+show(my_car)
+
